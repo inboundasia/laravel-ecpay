@@ -14,22 +14,22 @@ class QueryCreditCardPeriodInfo
     protected $merchantId;
     protected $hashKey;
     protected $hashIv;
-    protected $encryptType='md5';
+    protected $encryptType='sha256';
 
     protected $client;
 
     public function __construct()
     {
         if (config('app.env') == 'production') {
-            $this->apiUrl = 'https://payment.ecpay.com.tw/Cashier/QueryCreditCardPeriodInfo';
+            $this->apiUrl = 'https://payment.ecpay.com.tw/Cashier/QueryCreditCardPeriodInfo/V5';
         } else {
-            $this->apiUrl = 'https://payment-stage.ecpay.com.tw/Cashier/QueryCreditCardPeriodInfo';
+            $this->apiUrl = 'https://payment-stage.ecpay.com.tw/Cashier/QueryCreditCardPeriodInfo/V5';
         }
         $this->postData = new Collection();
 
         $this->merchantId = config('ecpay.MerchantId');
-        $this->hashKey = config('ecpay.InvoiceHashKey');
-        $this->hashIv = config('ecpay.InvoiceHashIV');
+        $this->hashKey = config('ecpay.HashKey');
+        $this->hashIv = config('ecpay.HashIV');
     }
 
     public function getData($orderId)
