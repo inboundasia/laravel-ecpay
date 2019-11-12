@@ -88,6 +88,16 @@ trait ECPayTrait
     protected function parseResponse($response)
     {
         $responseCollection = new Collection();
+
+        // if response is JSON format
+        if (is_string($response)
+            && is_array(json_decode($response, true))
+            && (json_last_error() == JSON_ERROR_NONE) ? true : false) {
+            foreach (json_decode($response) as $key => $value) {
+                $responseCollection->put($key, $value);
+            }
+        }
+
         preg_match_all('/([^&]*=[^&]*)/', $response, $match);
         if (!empty($match[0])) {
             foreach($match[0] as $paramValue) {
