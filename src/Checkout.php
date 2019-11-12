@@ -119,4 +119,9 @@ class Checkout
         $this->postData->returnUrl = $url;
         return $this;
     }
+    
+    public function getPostData()
+    {
+        return $this->postData;
+    }
 }
