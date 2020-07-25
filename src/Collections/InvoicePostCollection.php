@@ -113,12 +113,12 @@ class InvoicePostCollection extends Collection
             }
             $donation = 2;
         }
-        if (strlen($customerName) > 60) {
+        if (strlen(urldecode($customerName)) > 60) {
             $validator->getMessageBag()->add('CustomerName', 'CustomerName can not great then 60 characters');
         }
         $this->put('CustomerName', $customerName);
 
-        if (strlen($customerAddress) > 200) {
+        if (strlen(urldecode($customerAddress)) > 200) {
             $validator->getMessageBag()->add('CustomerAddr', 'CustomerAddr can not great then 200 characters');
         }
         $this->put('CustomerAddr', $customerAddress);
@@ -229,12 +229,12 @@ class InvoicePostCollection extends Collection
             }
             $donation = 0;
         }
-        if (strlen($customerName) > 60) {
+        if (strlen(urldecode($customerName)) > 60) {
             $validator->getMessageBag()->add('CustomerName', 'CustomerName can not great then 60 characters');
         }
         $this->put('CustomerName', $customerName);
 
-        if (strlen($customerAddress) > 200) {
+        if (strlen(urldecode($customerAddress)) > 200) {
             $validator->getMessageBag()->add('CustomerAddr', 'CustomerAddr can not great then 200 characters');
         }
         $this->put('CustomerAddr', $customerAddress);
