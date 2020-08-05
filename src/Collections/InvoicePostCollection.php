@@ -203,6 +203,7 @@ class InvoicePostCollection extends Collection
                 $validator->getMessageBag()
                     ->add('CarruerType and Donation', 'CarruerType or Donation must be required while Print is 0');
             }
+            $this->put('CarruerType', (string)$carruerType);
         } else {
             if (!empty($carruerType)) {
                 $validator->getMessageBag()
