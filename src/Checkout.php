@@ -65,7 +65,7 @@ class Checkout
      */
     public function setPlatform($platformId)
     {
-        if (strlen($platformId) > 10) {
+        if (mb_strlen($platformId) > 10) {
             throw new ECPayException('PlatformId max length is 10');
         }
         $this->platform = $platformId;

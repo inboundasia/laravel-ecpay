@@ -113,18 +113,18 @@ class InvoicePostCollection extends Collection
             }
             $donation = 2;
         }
-        if (strlen(urldecode($customerName)) > 60) {
+        if (mb_strlen(urldecode($customerName)) > 60) {
             $validator->getMessageBag()->add('CustomerName', 'CustomerName can not great then 60 characters');
         }
         $this->put('CustomerName', $customerName);
 
-        if (strlen(urldecode($customerAddress)) > 200) {
+        if (mb_strlen(urldecode($customerAddress)) > 200) {
             $validator->getMessageBag()->add('CustomerAddr', 'CustomerAddr can not great then 200 characters');
         }
         $this->put('CustomerAddr', $customerAddress);
         $this->put('CustomerPhone', $customPhone);
 
-        if (strlen($customEmail) > 200) {
+        if (mb_strlen($customEmail) > 200) {
             $validator->getMessageBag()->add('CustomerEmail', 'CustomerEmail can not great then 200 characters');
         }
         $this->put('CustomerEmail', $customEmail);
@@ -230,18 +230,18 @@ class InvoicePostCollection extends Collection
             }
             $donation = 0;
         }
-        if (strlen(urldecode($customerName)) > 60) {
+        if (mb_strlen(urldecode($customerName)) > 60) {
             $validator->getMessageBag()->add('CustomerName', 'CustomerName can not great then 60 characters');
         }
         $this->put('CustomerName', $customerName);
 
-        if (strlen(urldecode($customerAddress)) > 200) {
+        if (mb_strlen(urldecode($customerAddress)) > 200) {
             $validator->getMessageBag()->add('CustomerAddr', 'CustomerAddr can not great then 200 characters');
         }
         $this->put('CustomerAddr', $customerAddress);
         $this->put('CustomerPhone', $customPhone);
 
-        if (strlen($customEmail) > 200) {
+        if (mb_strlen($customEmail) > 200) {
             $validator->getMessageBag()->add('CustomerEmail', 'CustomerEmail can not great then 200 characters');
         }
         $this->put('CustomerEmail', $customEmail);

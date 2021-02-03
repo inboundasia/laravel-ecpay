@@ -73,7 +73,7 @@ class CheckoutPostCollection extends Collection
             }
             $itemNamePayment = implode('#', $displayName);
 
-            if (strlen($itemNamePayment) > 200) {
+            if (mb_strlen($itemNamePayment) > 200) {
                 $validateItem->add('ItemName', 'Composed Item Name can not more then 200 characters');
             }
 

@@ -13,7 +13,7 @@ class StringService
      */
     static public function identifyNumberGenerator($prefix='A')
     {
-        if (strlen($prefix) > 2) {
+        if (mb_strlen($prefix) > 2) {
             throw new ECPayException('ID prefix character maximum is 2 characters');
         }
         $intMsConst = 1000000;

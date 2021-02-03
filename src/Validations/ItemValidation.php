@@ -29,7 +29,7 @@ class ItemValidation
             if (!isset($item['unit'])) {
                 $messages->add('Item.unit:' . $i, 'Item Unit can not leave be blank');
             } else {
-                if (strlen($item['unit']) > 6) {
+                if (mb_strlen($item['unit']) > 6) {
                     $messages->add('Item.unit:' . $i, 'Item Unit can not great than 6 characters');
                 }
             }
