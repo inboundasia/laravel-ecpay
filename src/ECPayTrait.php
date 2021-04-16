@@ -35,7 +35,7 @@ trait ECPayTrait
      * @return mixed|\Psr\Http\Message\ResponseInterface
      * @throws ECPayException
      */
-    public function query()
+    public function query($json_response = false)
     {
         $this->setCheckCodeValue();
         $ch = curl_init();
@@ -51,7 +51,7 @@ trait ECPayTrait
         $httpStatus = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
         if ($httpStatus == 200) {
-            return $this->parseResponse($response);
+            return $json_response ? json_decode($response) : $this->parseResponse($response);
         } else {
             throw new ECPayException('HTTP Error with code '.$httpStatus);
         }
